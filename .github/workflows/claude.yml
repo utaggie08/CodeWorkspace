@@ -30,8 +30,10 @@ jobs:
         with:
           fetch-depth: 1
       - name: Project Setup 
-        run: 
-          cd uigen && npm run setup && npm run dev
+        run: |
+          cd uigen && npm run setup
+          cd uigen && npm run dev &
+          sleep 5
 
       - name: Run Claude Code
         id: claude
@@ -60,7 +62,7 @@ jobs:
               }
             }
 
-            allowed_tools: "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,..."
+          allowed_tools: "Bash(npm:*),Bash(sqlite3:*),mcp__playwright__browser_snapshot,mcp__playwright__browser_click,..."
 
           
 
