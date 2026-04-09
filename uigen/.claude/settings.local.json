@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright",
+      "Bash(start:*)",
+      "Bash(curl -s -X POST http://localhost:3000/api/chat -H 'Content-Type: application/json' -d '{\"messages\":[{\"role\":\"user\",\"content\":\"Create a simple user profile card component\"}],\"files\":{}}' --max-time 60)",
+      "mcp__ide__getDiagnostics",
+      "Bash(grep -n \"\\\\`\")",
+      "Bash(python3:*)",
+      "Bash(node:*)",
+      "Bash(git pull:*)"
+    ]
+  }
+}
