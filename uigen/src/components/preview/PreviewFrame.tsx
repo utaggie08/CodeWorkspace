@@ -150,11 +150,25 @@ export function PreviewFrame() {
     );
   }
 
+  const handleIframeLoad = () => {
+    try {
+      const win = iframeRef.current?.contentWindow;
+      if (win) {
+        win.addEventListener("blur", () => {
+          window.focus();
+        });
+      }
+    } catch {
+      // Cross-origin iframe — skip focus listener
+    }
+  };
+
   return (
     <iframe
       ref={iframeRef}
       className="w-full h-full border-0 bg-white"
       title="Preview"
+      onLoad={handleIframeLoad}
     />
   );
 }
